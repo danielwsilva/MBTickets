@@ -45,4 +45,16 @@ export default StyleSheet.create({
   list: {
     paddingBottom: RFValue(100),
   },
+  modalContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  modalButton: {
+    width: '50%',
+    alignItems: 'center',
+    paddingBottom: RFValue(10),
+    marginBottom: RFValue(10),
+    borderBottomColor: theme.colors.lightGray
+  }
 });
