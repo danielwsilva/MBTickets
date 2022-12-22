@@ -4,10 +4,10 @@ import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { Feather } from '@expo/vector-icons';
 import { FlashList } from '@shopify/flash-list';
 
-import { Modal, Text, Wrapper } from '../../../../components';
-import { useTicket } from '../../../../services/api/purchase';
-import { TicketResponse } from '../../../../services/api/purchase/types';
-import theme from '../../../../styles/theme';
+import { Modal, Text, Wrapper } from 'components';
+import { useTicket } from 'services/api/purchase';
+import { TicketResponse } from 'services/api/purchase/types';
+import theme from 'styles/theme';
 
 import { CountCart, Day, Ticket } from '../../components';
 import { PurchaseSkeleton } from '../../skeletons/PurchaseSkeleton';

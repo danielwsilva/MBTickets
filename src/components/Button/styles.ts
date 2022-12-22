@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import theme from '../../styles/theme';
+
+import theme from 'styles/theme';
 
 type Props = {
   disabled?: boolean;

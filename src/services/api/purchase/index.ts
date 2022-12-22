@@ -1,7 +1,6 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 
 import { ticketAPI } from '../../apiConfig';
-
 import { createTicket } from './keys';
 import { TicketResponse } from './types';
 

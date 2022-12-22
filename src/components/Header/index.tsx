@@ -1,9 +1,9 @@
-import { View, TouchableOpacity, StatusBar } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-import { Text } from '../../components/Text';
-import theme from '../../styles/theme';
+import theme from 'styles/theme';
 
+import { Text } from '../Text';
 import styles from './styles';
 
 type HeaderProps = {
