@@ -1,0 +1,88 @@
+{
+  "tickets": [
+    {
+      "id": "1",
+      "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/cf474bf27be32a2341460b1291aa029e.jpg",
+      "name": "BPM",
+      "address": "Rua Alagoas",
+      "addressNumber": "836",
+      "city": "São Paulo",
+      "state": "SP",
+      "price": 40.00,
+      "totalTickets": 50,
+      "date": "2022-12-22",
+      "hour": "20:00",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "2",
+      "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/223b12ff31d7a2c621f78c591888c465.jpg",
+      "name": "Paca 333",
+      "address": "Rua Pacaembu",
+      "addressNumber": "333",
+      "city": "Bernardo do Campo",
+      "state": "SP",
+      "price": 45.00,
+      "totalTickets": 13,
+      "date": "2022-12-22",
+      "hour": "19:00",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "3",
+      "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/120d33e09d4f7413ef68d44eb248e133.jpg",
+      "name": "Valeu Natalina",
+      "address": "Av. Odilon Braga",
+      "addressNumber": "1-30",
+      "city": "Bauru",
+      "state": "SP",
+      "price": 20.00,
+      "totalTickets": 10,
+      "date": "2022-12-22",
+      "hour": "22:00",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "4",
+      "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/c4b80c5cb285ebfdfae8ff3aa50861f7.jpg",
+      "name": "Festa do Branco / A Última do Ano",
+      "address": "Av. Guido Aliberti",
+      "addressNumber": "4811",
+      "city": "Ribeirão Preto",
+      "state": "SP",
+      "price": 100.00,
+      "totalTickets": 22,
+      "date": "2022-12-22",
+      "hour": "21:00",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "5",
+      "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/13dcc1fe9d406526275ca17cf48c873c.png",
+      "name": "#FEXXTOU - Open Bar",
+      "address": "Rua Alagoas",
+      "addressNumber": "836",
+      "city": "São Paulo",
+      "state": "SP",
+      "price": 30.00,
+      "totalTickets": 6,
+      "date": "2022-12-23",
+      "hour": "22:00",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "5",
+      "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/f76e8673a6ebf7c59d49ae8184f7ae6e.png",
+      "name": "Pop Funk",
+      "address": "Av. Odilon Braga",
+      "addressNumber": "1-30",
+      "city": "Bauru",
+      "state": "SP",
+      "price": 40.00,
+      "totalTickets": 6,
+      "date": "2022-12-29",
+      "hour": "21:00",
+      "categoty": "Universidades"
+    }
+  ]
+}
