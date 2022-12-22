@@ -1,0 +1,69 @@
+{
+  "tickets": [
+    {
+      "id": "1",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipNkSsRe5qSbhvfQgyqvL6fPMxqTnps50EF14uIs=s680-w680-h510",
+      "name": "Teste 1",
+      "address": "R. Cmte. Marcondes",
+      "addressNumber": "1620",
+      "city": "Ribeirão Preto",
+      "state": "SP",
+      "price": 32.00,
+      "totalTickets": 50,
+      "date": "2022-12-22",
+      "categoty": "Empresas"
+    },
+    {
+      "id": "2",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipOyD4aqudMeDBaAmnu7SWVRRcBJCGz4Gc5atgxG=s680-w680-h510",
+      "name": "Teste 2",
+      "address": "Av. Ticiano Mazetto",
+      "addressNumber": "131",
+      "city": "Ribeirão Preto",
+      "state": "SP",
+      "price": 100.00,
+      "totalTickets": 13,
+      "date": "2022-12-22",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "3",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipOyD4aqudMeDBaAmnu7SWVRRcBJCGz4Gc5atgxG=s680-w680-h510",
+      "name": "Teste 3",
+      "address": "Av. Ticiano Mazetto",
+      "addressNumber": "131",
+      "city": "Ribeirão Preto",
+      "state": "SP",
+      "price": 100.00,
+      "totalTickets": 10,
+      "date": "2022-12-22",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "4",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipNkSsRe5qSbhvfQgyqvL6fPMxqTnps50EF14uIs=s680-w680-h510",
+      "name": "Teste 4",
+      "address": "Av. Ticiano Mazetto",
+      "addressNumber": "131",
+      "city": "Ribeirão Preto",
+      "state": "SP",
+      "price": 100.00,
+      "totalTickets": 22,
+      "date": "2022-12-22",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "5",
+      "image": "https://lh3.googleusercontent.com/p/AF1QipOyD4aqudMeDBaAmnu7SWVRRcBJCGz4Gc5atgxG=s680-w680-h510",
+      "name": "Teste 5",
+      "address": "Av. Ticiano Mazetto",
+      "addressNumber": "131",
+      "city": "Ribeirão Preto",
+      "state": "SP",
+      "price": 142.50,
+      "totalTickets": 6,
+      "date": "2022-12-23",
+      "categoty": "Universidades"
+    }
+  ]
+}
