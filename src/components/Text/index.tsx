@@ -1,6 +1,6 @@
 import { StyleProp, Text as DefaultText, TextProps as TextPropsDefault, TextStyle } from 'react-native';
 
-import theme from '../../styles/theme';
+import theme from 'styles/theme';
 
 import { getStyles } from './styles';
 

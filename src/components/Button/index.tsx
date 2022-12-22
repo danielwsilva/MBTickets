@@ -1,9 +1,9 @@
 import React from 'react';
 import { ActivityIndicator, StyleProp, TouchableOpacity, ViewStyle } from 'react-native';
 
-import theme from '../../styles/theme';
-import { Text, TextProps } from '../Text';
+import theme from 'styles/theme';
 
+import { Text, TextProps } from '../Text';
 import { getStyles } from './styles';
 
 type ButtonProps = TextProps & {

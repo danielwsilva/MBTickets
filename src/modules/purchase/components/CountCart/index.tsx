@@ -1,8 +1,8 @@
 import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-import theme from '../../../../styles/theme';
-import { Text } from '../../../../components';
+import theme from 'styles/theme';
+import { Text } from 'components';
 
 import styles from './styles';
 

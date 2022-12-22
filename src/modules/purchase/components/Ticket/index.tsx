@@ -2,9 +2,9 @@ import { Image, View } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Feather, SimpleLineIcons } from '@expo/vector-icons';
 
-import { Text, Button } from '../../../../components';
-import { TicketResponse } from '../../../../services/api/purchase/types';
-import theme from '../../../../styles/theme';
+import { Text, Button } from 'components';
+import { TicketResponse } from 'services/api/purchase/types';
+import theme from 'styles/theme';
 
 import styles from './styles';
 

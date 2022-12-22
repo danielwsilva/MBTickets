@@ -2,7 +2,7 @@ import { useFonts, Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold } from 
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { Purchase } from './src/modules/purchase/screens';
+import { Purchase } from 'modules/purchase/screens';
 
 const queryClient = new QueryClient();
 

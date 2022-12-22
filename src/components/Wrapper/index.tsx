@@ -1,18 +1,10 @@
 import React from 'react';
-import {
-  View,
-  StatusBar,
-  TouchableWithoutFeedback,
-  Keyboard,
-  ViewStyle,
-  KeyboardAvoidingView,
-  Platform
-} from 'react-native';
+import { View, StatusBar, ViewStyle, KeyboardAvoidingView, Platform } from 'react-native';
 
-import theme from '../../styles/theme';
+import theme from 'styles/theme';
+
 import { Header } from '../Header';
 import { TextProps } from '../Text';
-
 import styles from './styles';
 
 type WrapperProps = TextProps & {
@@ -32,7 +24,6 @@ export const Wrapper = ({ children, styleContainer, ...props }: WrapperProps) =>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
         <View style={[styles.container, styleContainer]}>{children}</View>
       </KeyboardAvoidingView>
-
     </>
   );
 };
