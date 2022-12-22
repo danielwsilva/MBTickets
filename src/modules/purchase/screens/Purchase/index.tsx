@@ -10,6 +10,7 @@ import { TicketResponse } from '../../../../services/api/purchase/types';
 import theme from '../../../../styles/theme';
 
 import { CountCart, Day, Ticket } from '../../components';
+import { PurchaseSkeleton } from '../../skeletons/PurchaseSkeleton';
 import { ptBR } from './localeConfig';
 import styles from './styles';
 
@@ -23,46 +24,41 @@ export const Purchase = () => {
   const [category, setCategoty] = useState('Todos');
   const [tickets, setTickets] = useState<TicketResponse[]>([]);
   const [ticketsAll, setTicketsAll] = useState<TicketResponse[]>([]);
-  const [initialDate, setInitialDate] = useState('2022-12-22');
+  const [initialDate, setInitialDate] = useState(new Date().toISOString().slice(0, 10));
   const [refreshing, setRefreshing] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { colors, fonts } = theme;
-  const { data, refetch } = useTicket({
-    onSettled() {
-      setRefreshing(false);
-    }
-  });
+  const { data, refetch } = useTicket();
 
-  const filterCalendarDate = (array: TicketResponse[], value: string) => {
+  const filterCalendarDate = (value: string) => {
     setInitialDate(value);
-    setTickets(array?.filter((item) => item.date.includes(value)));
-    setTicketsAll(array?.filter((item) => item.date.includes(value)));
+    setRefreshing(false);
+    setLoading(true);
+    setTickets([]);
+
+    if (!data) return;
+
+    setTimeout(() => {
+      setTickets(data?.filter((item) => item.date.includes(value)));
+      setTicketsAll(data?.filter((item) => item.date.includes(value)));
+      setLoading(false);
+    }, 700);
   };
 
   const dataFormatted = useMemo(() => {
-    const productFormatted = data?.map((item) => {
-      return {
-        ...item,
-        loading: refreshing
-      };
-    });
-
-    if (!productFormatted) return;
-
-    filterCalendarDate(productFormatted, initialDate);
-    return productFormatted;
+    filterCalendarDate(initialDate);
   }, [data, refreshing]);
 
   const filterModalCategoty = (array: TicketResponse[], value: string) => {
-    if (value !== 'Todos')
-      return array.filter((item) => item.categoty.includes(value));
+    if (value !== 'Todos') return array.filter((item) => item.categoty.includes(value));
 
     return array;
   };
 
   const filterSearchName = (array: TicketResponse[], value: string) => {
-    return array.filter((item) => item.name.includes(value));
+    return array.filter((item) => item.name.toUpperCase().includes(value.toUpperCase()));
   };
 
   const handlePressCategory = (value: string) => {
@@ -72,14 +68,10 @@ export const Purchase = () => {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
-    setName('');
-    setCategoty('Todos');
     refetch();
   }, [refetch]);
 
   useEffect(() => {
-    if (!dataFormatted) return;
-
     let result = ticketsAll;
 
     result = filterSearchName(result, name);
@@ -103,7 +95,7 @@ export const Purchase = () => {
               date={date?.day}
               disabled={state === 'disabled'}
               isActive={initialDate === date?.dateString}
-              onPress={() => filterCalendarDate(dataFormatted!, date!.dateString)}
+              onPress={() => filterCalendarDate(date!.dateString)}
             />
           )}
           headerStyle={styles.headerStyle}
@@ -130,7 +122,9 @@ export const Purchase = () => {
           </View>
 
           <TouchableOpacity activeOpacity={0.8} style={styles.button} onPress={() => setVisible(true)}>
-            <Text color={colors.white} fontSize={14} numberOfLines={1} style={{ flex: 1 }}>{category}</Text>
+            <Text color={colors.white} fontSize={14} numberOfLines={1} style={{ flex: 1 }}>
+              {category}
+            </Text>
             <Feather name="chevron-down" size={20} color={colors.white} />
           </TouchableOpacity>
         </View>
@@ -140,8 +134,15 @@ export const Purchase = () => {
   );
 
   const renderEmptyComponent = () => {
+    if (loading) return <PurchaseSkeleton />;
+
     return (
-      <Text color={colors.textLight} fontWeight="normal" fontSize={14} style={{ paddingHorizontal: 16, textAlign: 'center' }}>
+      <Text
+        color={colors.textLight}
+        fontWeight="normal"
+        fontSize={14}
+        style={{ paddingHorizontal: 16, textAlign: 'center' }}
+      >
         Não encontramos ingressos nesse período.
       </Text>
     );
@@ -156,10 +157,10 @@ export const Purchase = () => {
           renderItem={({ item }) => <Ticket data={item} />}
           ListHeaderComponent={listHeaderComponent}
           ListEmptyComponent={renderEmptyComponent}
-          showsVerticalScrollIndicator={false}
           onRefresh={onRefresh}
           refreshing={refreshing}
           contentContainerStyle={styles.list}
+          showsVerticalScrollIndicator={false}
           estimatedItemSize={200}
         />
       </Wrapper>

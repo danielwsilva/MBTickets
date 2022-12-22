@@ -9,6 +9,7 @@ export type TicketResponse = {
   price: number;
   totalTickets: number;
   date: string;
+  hour: string;
   categoty: 'Empresas' | 'Universidades';
   loading: boolean;
 };

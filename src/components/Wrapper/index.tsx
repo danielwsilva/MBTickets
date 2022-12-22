@@ -1,6 +1,15 @@
 import React from 'react';
-import { View, StatusBar, TouchableWithoutFeedback, Keyboard, ScrollView, ViewStyle } from 'react-native';
+import {
+  View,
+  StatusBar,
+  TouchableWithoutFeedback,
+  Keyboard,
+  ViewStyle,
+  KeyboardAvoidingView,
+  Platform
+} from 'react-native';
 
+import theme from '../../styles/theme';
 import { Header } from '../Header';
 import { TextProps } from '../Text';
 
@@ -13,19 +22,17 @@ type WrapperProps = TextProps & {
   action?: React.ReactNode;
   children: React.ReactNode;
   styleContainer?: ViewStyle;
-  disabledScrollView?: boolean;
 };
 
-export const Wrapper = ({ children, disabledScrollView = false, styleContainer, ...props}: WrapperProps) => {
+export const Wrapper = ({ children, styleContainer, ...props }: WrapperProps) => {
   return (
     <>
-      <StatusBar barStyle='light-content' />
-      <Header {...props}/>
-      <View style={[styles.container, styleContainer]}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          {!disabledScrollView ? <ScrollView style={{ flex: 1 }}>{children}</ScrollView> : <>{children}</>}
-        </TouchableWithoutFeedback>
-      </View>
+      <StatusBar barStyle="light-content" backgroundColor={theme.colors.black} />
+      <Header {...props} />
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
+        <View style={[styles.container, styleContainer]}>{children}</View>
+      </KeyboardAvoidingView>
+
     </>
   );
 };
