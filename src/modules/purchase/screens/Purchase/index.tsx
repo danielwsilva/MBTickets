@@ -5,15 +5,17 @@ import { Feather } from '@expo/vector-icons';
 import { FlashList } from '@shopify/flash-list';
 import { format } from 'date-fns';
 
-import { Modal, Text, Wrapper } from 'components';
+import { Button, Modal, Text, Wrapper } from 'components';
 import { useTicket } from 'services/api/purchase';
 import { TicketResponse } from 'services/api/purchase/types';
 import theme from 'styles/theme';
 
-import { CountCart, Day, Ticket } from '../../components';
+import { CountCart, Day, FooterTicketPurchase, Ticket } from '../../components';
 import { PurchaseSkeleton } from '../../skeletons/PurchaseSkeleton';
 import { ptBR } from './localeConfig';
 import styles from './styles';
+import { RFValue } from 'react-native-responsive-fontsize';
+import { useCart } from 'hooks/cart';
 
 LocaleConfig.locales['pt-br'] = ptBR;
 LocaleConfig.defaultLocale = 'pt-br';
@@ -155,7 +157,11 @@ export const Purchase = () => {
         <FlashList
           data={tickets}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Ticket data={item} />}
+          renderItem={({ item }) => (
+            <Ticket data={item}>
+              <FooterTicketPurchase data={item} />
+            </Ticket>
+          )}
           ListHeaderComponent={listHeaderComponent}
           ListEmptyComponent={renderEmptyComponent}
           onRefresh={onRefresh}

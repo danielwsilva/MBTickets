@@ -10,7 +10,7 @@
       "state": "SP",
       "price": 40.00,
       "totalTickets": 50,
-      "date": "2022-12-22",
+      "date": "2022-12-23",
       "hour": "20:00",
       "categoty": "Universidades"
     },
@@ -24,7 +24,7 @@
       "state": "SP",
       "price": 45.00,
       "totalTickets": 13,
-      "date": "2022-12-22",
+      "date": "2022-12-23",
       "hour": "19:00",
       "categoty": "Universidades"
     },
@@ -38,7 +38,7 @@
       "state": "SP",
       "price": 20.00,
       "totalTickets": 10,
-      "date": "2022-12-22",
+      "date": "2022-12-23",
       "hour": "22:00",
       "categoty": "Universidades"
     },
@@ -52,7 +52,7 @@
       "state": "SP",
       "price": 100.00,
       "totalTickets": 22,
-      "date": "2022-12-22",
+      "date": "2022-12-23",
       "hour": "21:00",
       "categoty": "Universidades"
     },
@@ -66,7 +66,7 @@
       "state": "SP",
       "price": 30.00,
       "totalTickets": 6,
-      "date": "2022-12-23",
+      "date": "2022-12-24",
       "hour": "22:00",
       "categoty": "Universidades"
     },
