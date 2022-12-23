@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { Purchase } from 'modules/purchase/screens';
 import 'config/ReactotronConfig';
+import { CartProvider } from 'hooks/cart';
 
 const queryClient = new QueryClient();
 
@@ -21,7 +22,9 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <Purchase />
+        <CartProvider>
+          <Purchase />
+        </CartProvider>
       </SafeAreaProvider>
     </QueryClientProvider>
   );

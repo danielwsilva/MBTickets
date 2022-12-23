@@ -2,7 +2,7 @@ import { Image, View } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Feather, SimpleLineIcons } from '@expo/vector-icons';
 
-import { Text, Button } from 'components';
+import { Text } from 'components';
 import { TicketResponse } from 'services/api/purchase/types';
 import theme from 'styles/theme';
 
@@ -10,10 +10,12 @@ import styles from './styles';
 
 type TicketProps = {
   data: TicketResponse;
+  children: React.ReactNode;
 };
 
-export const Ticket = ({ data }: TicketProps) => {
+export const Ticket = ({ data, children }: TicketProps) => {
   const { colors } = theme;
+
   return (
     <View style={styles.container}>
       <Image source={{ uri: data.image }} style={styles.image} />
@@ -36,10 +38,7 @@ export const Ticket = ({ data }: TicketProps) => {
           </Text>
         </View>
         <View style={styles.wrapper}>
-          <Text fontSize={14}>{`R$ ${data.price.toFixed(2).replace('.', ',')}`}</Text>
-          <Button fontWeight="normal" fontSize={14} buttonStyle={{ paddingVertical: RFValue(4) }}>
-              Comprar
-          </Button>
+          {children}
         </View>
       </View>
     </View>
