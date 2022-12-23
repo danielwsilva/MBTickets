@@ -55,6 +55,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingBottom: RFValue(10),
     marginBottom: RFValue(10),
-    borderBottomColor: theme.colors.lightGray
+    borderBottomColor: theme.colors.grayLight,
+    borderStyle: 'dashed'
   }
 });
