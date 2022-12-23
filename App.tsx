@@ -3,6 +3,7 @@ import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-c
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { Purchase } from 'modules/purchase/screens';
+import 'config/ReactotronConfig';
 
 const queryClient = new QueryClient();
 

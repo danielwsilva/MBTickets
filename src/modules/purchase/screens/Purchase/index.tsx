@@ -3,6 +3,7 @@ import { TouchableOpacity, View, TextInput } from 'react-native';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { Feather } from '@expo/vector-icons';
 import { FlashList } from '@shopify/flash-list';
+import { format } from 'date-fns';
 
 import { Modal, Text, Wrapper } from 'components';
 import { useTicket } from 'services/api/purchase';
@@ -24,7 +25,7 @@ export const Purchase = () => {
   const [category, setCategoty] = useState('Todos');
   const [tickets, setTickets] = useState<TicketResponse[]>([]);
   const [ticketsAll, setTicketsAll] = useState<TicketResponse[]>([]);
-  const [initialDate, setInitialDate] = useState(new Date().toISOString().slice(0, 10));
+  const [initialDate, setInitialDate] = useState(format(new Date(), 'yyyy-MM-dd'));
   const [refreshing, setRefreshing] = useState(false);
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -32,23 +33,23 @@ export const Purchase = () => {
   const { colors, fonts } = theme;
   const { data, refetch } = useTicket();
 
-  const filterCalendarDate = (value: string) => {
+  const filterCalendarDate = (value: string, render?: boolean) => {
+    if (!render && initialDate === value) return;
     setInitialDate(value);
-    setRefreshing(false);
     setLoading(true);
     setTickets([]);
 
     if (!data) return;
-
     setTimeout(() => {
       setTickets(data?.filter((item) => item.date.includes(value)));
       setTicketsAll(data?.filter((item) => item.date.includes(value)));
       setLoading(false);
+      setRefreshing(false);
     }, 700);
   };
 
   const dataFormatted = useMemo(() => {
-    filterCalendarDate(initialDate);
+    filterCalendarDate(initialDate, true);
   }, [data, refreshing]);
 
   const filterModalCategoty = (array: TicketResponse[], value: string) => {
@@ -95,7 +96,7 @@ export const Purchase = () => {
               date={date?.day}
               disabled={state === 'disabled'}
               isActive={initialDate === date?.dateString}
-              onPress={() => filterCalendarDate(date!.dateString)}
+              onPress={() => filterCalendarDate(state !== 'disabled' ? date!.dateString : initialDate) }
             />
           )}
           headerStyle={styles.headerStyle}
@@ -130,7 +131,7 @@ export const Purchase = () => {
         </View>
       </View>
     ),
-    [initialDate, dataFormatted, name, category]
+    [initialDate, dataFormatted, name, category, data]
   );
 
   const renderEmptyComponent = () => {
@@ -172,7 +173,9 @@ export const Purchase = () => {
               style={{ ...styles.modalButton, borderBottomWidth: CATEGORY[CATEGORY.length - 1] !== item ? 1 : 0 }}
               onPress={() => handlePressCategory(item)}
             >
-              <Text fontSize={18}>{item}</Text>
+              <Text fontSize={18} fontWeight="bold" color={category === item ? colors.primary : colors.text}>
+                {item}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>
