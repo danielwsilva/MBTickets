@@ -71,7 +71,21 @@
       "categoty": "Universidades"
     },
     {
-      "id": "5",
+      "id": "6",
+      "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/f76e8673a6ebf7c59d49ae8184f7ae6e.png",
+      "name": "Pop Funk",
+      "address": "Av. Odilon Braga",
+      "addressNumber": "1-30",
+      "city": "Bauru",
+      "state": "SP",
+      "price": 40.00,
+      "totalTickets": 6,
+      "date": "2022-12-29",
+      "hour": "21:00",
+      "categoty": "Universidades"
+    },
+    {
+      "id": "7",
       "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/f76e8673a6ebf7c59d49ae8184f7ae6e.png",
       "name": "Pop Funk",
       "address": "Av. Odilon Braga",

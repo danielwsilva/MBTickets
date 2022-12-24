@@ -12,4 +12,5 @@ export type TicketResponse = {
   hour: string;
   categoty: 'Empresas' | 'Universidades';
   loading: boolean;
+  amount: number;
 };

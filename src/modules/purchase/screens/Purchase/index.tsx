@@ -2,10 +2,12 @@ import { useState, useCallback, useMemo, useEffect } from 'react';
 import { TouchableOpacity, View, TextInput } from 'react-native';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { Feather } from '@expo/vector-icons';
-import { FlashList } from '@shopify/flash-list';
+import { useNavigation } from '@react-navigation/native';
+import { FlashList, ListRenderItem } from '@shopify/flash-list';
 import { format } from 'date-fns';
 
-import { Button, Modal, Text, Wrapper } from 'components';
+import { Modal, Text, Wrapper } from 'components';
+import { ROUTES } from 'navigation/appRoutes';
 import { useTicket } from 'services/api/purchase';
 import { TicketResponse } from 'services/api/purchase/types';
 import theme from 'styles/theme';
@@ -14,8 +16,6 @@ import { CountCart, Day, FooterTicketPurchase, Ticket } from '../../components';
 import { PurchaseSkeleton } from '../../skeletons/PurchaseSkeleton';
 import { ptBR } from './localeConfig';
 import styles from './styles';
-import { RFValue } from 'react-native-responsive-fontsize';
-import { useCart } from 'hooks/cart';
 
 LocaleConfig.locales['pt-br'] = ptBR;
 LocaleConfig.defaultLocale = 'pt-br';
@@ -34,6 +34,8 @@ export const Purchase = () => {
 
   const { colors, fonts } = theme;
   const { data, refetch } = useTicket();
+
+  const { navigate } = useNavigation();
 
   const filterCalendarDate = (value: string, render?: boolean) => {
     if (!render && initialDate === value) return;
@@ -98,7 +100,7 @@ export const Purchase = () => {
               date={date?.day}
               disabled={state === 'disabled'}
               isActive={initialDate === date?.dateString}
-              onPress={() => filterCalendarDate(state !== 'disabled' ? date!.dateString : initialDate) }
+              onPress={() => filterCalendarDate(state !== 'disabled' ? date!.dateString : initialDate)}
             />
           )}
           headerStyle={styles.headerStyle}
@@ -136,7 +138,7 @@ export const Purchase = () => {
     [initialDate, dataFormatted, name, category, data]
   );
 
-  const renderEmptyComponent = () => {
+  const linstEmptyComponent = () => {
     if (loading) return <PurchaseSkeleton />;
 
     return (
@@ -151,19 +153,25 @@ export const Purchase = () => {
     );
   };
 
+  const renderItem: ListRenderItem<TicketResponse> = ({ item }) => (
+    <Ticket data={item}>
+      <FooterTicketPurchase data={item} />
+    </Ticket>
+  );
+
   return (
     <>
-      <Wrapper title="Ingressos" hasBackButton={false} action={<CountCart />}>
+      <Wrapper
+        title="Ingressos"
+        hasBackButton={false}
+        action={<CountCart onPress={() => navigate(ROUTES.PURCHASE_CART)} />}
+      >
         <FlashList
           data={tickets}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <Ticket data={item}>
-              <FooterTicketPurchase data={item} />
-            </Ticket>
-          )}
+          renderItem={renderItem}
           ListHeaderComponent={listHeaderComponent}
-          ListEmptyComponent={renderEmptyComponent}
+          ListEmptyComponent={linstEmptyComponent}
           onRefresh={onRefresh}
           refreshing={refreshing}
           contentContainerStyle={styles.list}

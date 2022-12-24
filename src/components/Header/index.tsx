@@ -5,6 +5,7 @@ import theme from 'styles/theme';
 
 import { Text } from '../Text';
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 type HeaderProps = {
   title?: string;
@@ -14,12 +15,14 @@ type HeaderProps = {
 };
 
 export const Header = ({ title, hasBackButton = true, hasClose, action }: HeaderProps) => {
+  const { goBack } = useNavigation();
+
   const { colors } = theme;
 
   return (
     <View style={styles.container}>
       {hasBackButton ? (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => goBack()}>
           <AntDesign name="arrowleft" color={colors.white} size={16} />
         </TouchableOpacity>
       ) : (

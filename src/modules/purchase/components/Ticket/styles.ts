@@ -20,7 +20,9 @@ export default StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingHorizontal: RFValue(10)
+    marginLeft: RFValue(10),
+    paddingRight: RFValue(10),
+    paddingVertical:  RFValue(8),
   },
   wrapper: {
     flexDirection: 'row',

@@ -1,4 +1,4 @@
-import { Image, View } from 'react-native';
+import { Image, View, StyleProp, ViewStyle } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Feather, SimpleLineIcons } from '@expo/vector-icons';
 
@@ -10,16 +10,18 @@ import styles from './styles';
 
 type TicketProps = {
   data: TicketResponse;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  style?: StyleProp<ViewStyle>;
+  styleContent?: StyleProp<ViewStyle>;
 };
 
-export const Ticket = ({ data, children }: TicketProps) => {
+export const Ticket = ({ data, style, styleContent, children }: TicketProps) => {
   const { colors } = theme;
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Image source={{ uri: data.image }} style={styles.image} />
-      <View style={styles.content}>
+      <View style={[styles.content, styleContent]}>
         <View style={styles.wrapper}>
           <Text fontSize={14} numberOfLines={1} style={{ flex: 1, marginRight: RFValue(6) }}>
             {data.name}
