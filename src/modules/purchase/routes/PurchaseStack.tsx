@@ -3,11 +3,12 @@ import { CartProvider } from 'hooks/cart';
 
 import { ROUTES } from 'navigation/appRoutes';
 
-import { Purchase, Cart } from '../screens';
+import { Purchase, Cart, CartCreditCard } from '../screens';
 
 export type PurchaseRouteMap = {
   [ROUTES.PURCHASE_INITIAL]: undefined;
   [ROUTES.PURCHASE_CART]: undefined;
+  [ROUTES.PURCHASE_CREDIT_CARD]: undefined;
 };
 
 const { Navigator, Screen } = createNativeStackNavigator<PurchaseRouteMap>();
@@ -21,6 +22,7 @@ const PurchaseRoutes = () => {
       >
         <Screen name={ROUTES.PURCHASE_INITIAL} component={Purchase} />
         <Screen name={ROUTES.PURCHASE_CART} component={Cart} />
+        <Screen name={ROUTES.PURCHASE_CREDIT_CARD} component={CartCreditCard} />
       </Navigator>
     </CartProvider>
   );

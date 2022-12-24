@@ -1,26 +1,31 @@
 import { useEffect } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { Ionicons, Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { FlashList, ListRenderItem } from '@shopify/flash-list';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import { Button, Text, Wrapper } from 'components';
 import { useCart } from 'hooks/cart';
+import { ROUTES } from 'navigation/appRoutes';
 import { TicketResponse } from 'services/api/purchase/types';
 import theme from 'styles/theme';
 
-import { FooterTicketCart, Ticket } from '../../components';
+import {FooterTicketCart, Ticket } from '../../components';
 import styles from './styles';
 
 export const Cart = () => {
   const { cart, total, calcTotal, removeProduct } = useCart();
+
+  const { navigate } = useNavigation();
+
   const { colors } = theme;
 
   const listEmptyComponent = () => (
     <View style={styles.listEmpty}>
       <Feather name="alert-triangle" size={48} color={colors.warning} />
       <Text fontWeight="normal" style={styles.listEmptyText}>
-        {'Seu carrinho está vazio :( \n\nAdicione produtos clicando no botão Comprar'}
+        {'Seu carrinho está vazio :( \n\nAdicione ingressos clicando no botão Comprar'}
       </Text>
     </View>
   );
@@ -72,7 +77,9 @@ export const Cart = () => {
           <Text>TOTAL</Text>
           <Text>{`R$ ${total.toFixed(2).replace('.', ',')}`}</Text>
         </View>
-        <Button disabled={!cart.length}>Avançar</Button>
+        <Button disabled={!cart.length} onPress={() => navigate(ROUTES.PURCHASE_CREDIT_CARD)}>
+          Avançar
+        </Button>
       </View>
     </Wrapper>
   );
