@@ -10,6 +10,7 @@ export default {
     // Status Colors
     success: '#5CB85C',
     error: '#EF0C0C',
+    warning: '#FF7816',
 
     // Gray colors
     text: '#686868',

@@ -22,7 +22,7 @@ export const FooterTicketPurchase = ({ data }: FooterTicketPurchaseProps) => {
   const styles = getStyles({ active });
 
   const handleAddCart = () => {
-    addProduct(data);
+    addProduct({ ...data, amount: 1 });
   };
 
   return (
