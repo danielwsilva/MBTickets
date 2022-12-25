@@ -148,7 +148,7 @@ export const Purchase = () => {
         fontSize={14}
         style={{ paddingHorizontal: 16, textAlign: 'center' }}
       >
-        Não encontramos ingressos nesse período.
+        Não encontramos ingressos nesta data.
       </Text>
     );
   };
