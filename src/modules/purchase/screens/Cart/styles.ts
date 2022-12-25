@@ -38,11 +38,10 @@ export default StyleSheet.create({
   listEmpty: {
     marginTop: '50%',
     alignItems: 'center',
-    justifyContent: 'center',
     paddingHorizontal: RFValue(16)
   },
   listEmptyText: {
     marginTop: RFValue(16),
     textAlign: 'center'
-  },
+  }
 });

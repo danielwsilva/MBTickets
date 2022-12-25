@@ -1,7 +1,10 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { getFocusedRouteNameFromRoute, useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { CartProvider } from 'hooks/cart';
 
+import styles from 'navigation/tabNavigation/styles';
 import { ROUTES } from 'navigation/appRoutes';
+import { useEffect } from 'react';
 
 import { Purchase, Cart, CartCreditCard } from '../screens';
 
@@ -13,7 +16,19 @@ export type PurchaseRouteMap = {
 
 const { Navigator, Screen } = createNativeStackNavigator<PurchaseRouteMap>();
 
-const PurchaseRoutes = () => {
+const PurchaseRoutes = ({ route }: NativeStackScreenProps<PurchaseRouteMap>) => {
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+
+    if (!!routeName && routeName !== ROUTES.PURCHASE_INITIAL) {
+      navigation.setOptions({ tabBarStyle: { display: 'none' } });
+    } else {
+      navigation.setOptions({ tabBarStyle: styles.navigator });
+    }
+  }, [navigation, route]);
+
   return (
     <CartProvider>
       <Navigator
