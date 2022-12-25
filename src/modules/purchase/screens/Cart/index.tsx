@@ -5,13 +5,13 @@ import { useNavigation } from '@react-navigation/native';
 import { FlashList, ListRenderItem } from '@shopify/flash-list';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-import { Button, Text, Wrapper } from 'components';
+import { Button, Text, Wrapper, Ticket } from 'components';
 import { useCart } from 'hooks/cart';
 import { ROUTES } from 'navigation/appRoutes';
 import { TicketResponse } from 'services/api/types';
 import theme from 'styles/theme';
 
-import {FooterTicketCart, Ticket } from '../../components';
+import { FooterTicketCart } from '../../components';
 import styles from './styles';
 
 export const Cart = () => {

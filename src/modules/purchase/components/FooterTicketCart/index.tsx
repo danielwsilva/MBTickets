@@ -1,13 +1,13 @@
 import { useState } from 'react';
+import { TouchableOpacity, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 import { Text } from 'components';
 import { TicketResponse } from 'services/api/types';
+import { useCart } from 'hooks/cart';
 import theme from 'styles/theme';
 
 import styles from './styles';
-import { TouchableOpacity, View } from 'react-native';
-import { useCart } from 'hooks/cart';
 
 type FooterTicketPurchaseProps = {
   data: TicketResponse;

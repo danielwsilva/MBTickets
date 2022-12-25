@@ -1,17 +1,16 @@
 import { useCallback, useState } from 'react';
 import { View } from 'react-native';
 import { AntDesign, Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { FlashList, ListRenderItem } from '@shopify/flash-list';
 import { format } from 'date-fns';
 
-import { Button, Text, Wrapper } from 'components';
-import { Ticket } from 'modules/purchase/components';
+import { Button, Text, Wrapper, Skeleton, Ticket } from 'components';
 import { useMyTicket } from 'services/api';
 import { PaymentRequest, TicketResponse } from 'services/api/types';
 import theme from 'styles/theme';
 
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 export const MyTickets = () => {
   const [refreshing, setRefreshing] = useState(false);
@@ -20,7 +19,7 @@ export const MyTickets = () => {
 
   const { goBack } = useNavigation();
 
-  const { data, refetch } = useMyTicket({
+  const { data, refetch, isLoading } = useMyTicket({
     onSettled() {
       setRefreshing(false);
     }
@@ -69,17 +68,21 @@ export const MyTickets = () => {
 
   return (
     <Wrapper title="Meus ingressos" hasBackButton={false}>
-      <FlashList
-        data={tickets}
-        keyExtractor={(_, index) => String(index)}
-        renderItem={renderItem}
-        ListEmptyComponent={listEmptyComponent}
-        onRefresh={onRefresh}
-        refreshing={refreshing}
-        contentContainerStyle={styles.list}
-        showsVerticalScrollIndicator={false}
-        estimatedItemSize={200}
-      />
+      {isLoading || refreshing ? (
+        <Skeleton />
+      ) : (
+        <FlashList
+          data={tickets}
+          keyExtractor={(_, index) => String(index)}
+          renderItem={renderItem}
+          ListEmptyComponent={listEmptyComponent}
+          onRefresh={onRefresh}
+          refreshing={refreshing}
+          contentContainerStyle={styles.list}
+          showsVerticalScrollIndicator={false}
+          estimatedItemSize={200}
+        />
+      )}
     </Wrapper>
   );
 };

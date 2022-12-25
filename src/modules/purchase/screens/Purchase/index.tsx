@@ -6,14 +6,13 @@ import { useNavigation } from '@react-navigation/native';
 import { FlashList, ListRenderItem } from '@shopify/flash-list';
 import { format } from 'date-fns';
 
-import { Modal, Text, Wrapper } from 'components';
+import { Modal, Text, Wrapper, Skeleton, Ticket } from 'components';
 import { ROUTES } from 'navigation/appRoutes';
 import { useTicket } from 'services/api';
 import { TicketResponse } from 'services/api/types';
 import theme from 'styles/theme';
 
-import { CountCart, Day, FooterTicketPurchase, Ticket } from '../../components';
-import { PurchaseSkeleton } from '../../skeletons/PurchaseSkeleton';
+import { CountCart, Day, FooterTicketPurchase } from '../../components';
 import { ptBR } from './localeConfig';
 import styles from './styles';
 
@@ -139,7 +138,7 @@ export const Purchase = () => {
   );
 
   const linstEmptyComponent = () => {
-    if (loading) return <PurchaseSkeleton />;
+    if (loading) return <Skeleton />;
 
     return (
       <Text

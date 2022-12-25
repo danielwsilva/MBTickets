@@ -2,10 +2,10 @@ import { Image, View, StyleProp, ViewStyle } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Feather, SimpleLineIcons } from '@expo/vector-icons';
 
-import { Text } from 'components';
 import { TicketResponse } from 'services/api/types';
 import theme from 'styles/theme';
 
+import { Text } from '../Text';
 import styles from './styles';
 
 type TicketProps = {

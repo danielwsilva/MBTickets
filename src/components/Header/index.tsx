@@ -1,11 +1,11 @@
 import { View, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
 import theme from 'styles/theme';
 
 import { Text } from '../Text';
 import styles from './styles';
-import { useNavigation } from '@react-navigation/native';
 
 type HeaderProps = {
   title?: string;

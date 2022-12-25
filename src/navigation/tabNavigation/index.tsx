@@ -1,4 +1,4 @@
-import { Pressable, View, PressableProps, KeyboardAvoidingView, Platform} from 'react-native';
+import { Pressable, View, PressableProps, KeyboardAvoidingView, Platform } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 

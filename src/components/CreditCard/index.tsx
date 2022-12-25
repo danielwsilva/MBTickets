@@ -7,7 +7,6 @@ import { onlyNumbers } from 'utils/helpers';
 import svgs from '../Icon/svgs';
 import { SVG } from '../Icon';
 import { Text } from '../Text';
-
 import styles from './styles';
 
 type CreditCardProps = {
