@@ -3,7 +3,7 @@ import { Feather } from '@expo/vector-icons';
 
 import { useCart } from 'hooks/cart';
 import { Button, Text } from 'components';
-import { TicketResponse } from 'services/api/purchase/types';
+import { TicketResponse } from 'services/api/types';
 import theme from 'styles/theme';
 
 import { getStyles } from './styles';

@@ -8,8 +8,7 @@ export default StyleSheet.create({
     backgroundColor: theme.colors.white,
     height: RFValue(60),
     marginBottom: RFValue(12),
-    marginHorizontal: RFValue(12),
-    position: 'absolute',
+    marginHorizontal: RFValue(16),
     borderRadius: 24
   },
   content: {

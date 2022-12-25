@@ -8,7 +8,7 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { Button, Text, Wrapper } from 'components';
 import { useCart } from 'hooks/cart';
 import { ROUTES } from 'navigation/appRoutes';
-import { TicketResponse } from 'services/api/purchase/types';
+import { TicketResponse } from 'services/api/types';
 import theme from 'styles/theme';
 
 import {FooterTicketCart, Ticket } from '../../components';

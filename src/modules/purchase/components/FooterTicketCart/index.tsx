@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
 
 import { Text } from 'components';
-import { TicketResponse } from 'services/api/purchase/types';
+import { TicketResponse } from 'services/api/types';
 import theme from 'styles/theme';
 
 import styles from './styles';

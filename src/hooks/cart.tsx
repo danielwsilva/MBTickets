@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
 
-import { TicketResponse } from 'services/api/purchase/types';
+import { TicketResponse } from 'services/api/types';
 
 interface CartContextData {
   cart: TicketResponse[];

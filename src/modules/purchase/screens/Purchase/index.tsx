@@ -9,7 +9,7 @@ import { format } from 'date-fns';
 import { Modal, Text, Wrapper } from 'components';
 import { ROUTES } from 'navigation/appRoutes';
 import { useTicket } from 'services/api';
-import { TicketResponse } from 'services/api/purchase/types';
+import { TicketResponse } from 'services/api/types';
 import theme from 'styles/theme';
 
 import { CountCart, Day, FooterTicketPurchase, Ticket } from '../../components';
