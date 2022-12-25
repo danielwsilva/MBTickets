@@ -1,19 +1,39 @@
 import { useState } from 'react';
-import { Platform, View } from 'react-native';
+import { Platform, View, ScrollView } from 'react-native';
 import { Masks } from 'react-native-mask-input';
 import { Formik } from 'formik';
+import { v4 } from 'uuid';
 
 import { Button, Input, Text, Wrapper, CreditCard } from 'components';
 import { cardFlagKey, validityCardCredMask } from 'utils/helpers';
 import svgs from 'components/Icon/svgs';
 
 import { CardInfo, initialValues, validate, validationSchema } from './form';
+import { usePayment } from 'services/api/purchase';
+import { useCart } from 'hooks/cart';
+import { CommonActions, useNavigation } from '@react-navigation/native';
+import { ROUTES } from 'navigation/appRoutes';
 
 export const CartCreditCard = () => {
   const [cardFlag, setCardFlag] = useState<keyof typeof svgs>('defaultCard');
+  const { cart, setCart } = useCart();
+
+  const { mutate, isLoading } = usePayment();
+  const { dispatch } = useNavigation();
 
   const onSubmit = (values: CardInfo) => {
-    console.log(values);
+    const item = { id: v4(), card: values, tickets: cart };
+    mutate(item, {
+      onSuccess() {
+        setCart([]);
+        dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [{ name: ROUTES.PURCHASE_INITIAL }]
+          })
+        );
+      }
+    });
   };
 
   const disabled = (values: CardInfo) => {
@@ -21,7 +41,7 @@ export const CartCreditCard = () => {
   };
 
   return (
-    <Wrapper title="Pagamento" styleContainer={{ paddingHorizontal: 16 }}>
+    <Wrapper title="Pagamento" styleContainer={{ paddingHorizontal: 16,  paddingBottom: 20 }}>
       <Text style={{ textAlign: 'center' }}>Cadastre seu cartão de crédito para efetuar o pagamentos</Text>
 
       <Formik
@@ -33,8 +53,8 @@ export const CartCreditCard = () => {
         validateOnBlur={false}
       >
         {({ handleChange, handleSubmit, values, errors, setErrors }) => (
-          <View style={{ flex: 1, marginBottom: 20 }}>
-            <View style={{ flex: 1 }}>
+          <>
+            <ScrollView showsVerticalScrollIndicator={false}>
               <CreditCard
                 cardNumber={values.number}
                 expireDate={values.exp_date}
@@ -97,12 +117,12 @@ export const CartCreditCard = () => {
                 onChange={() => setErrors({ ...errors, holder: '' })}
                 maxLength={64}
               />
-            </View>
+            </ScrollView>
 
-            <Button onPress={() => handleSubmit()} disabled={disabled(values)}>
-              Finalizar pagamento
+            <Button disabled={disabled(values) || isLoading} loading={isLoading} onPress={() => handleSubmit()} >
+                Finalizar pagamento
             </Button>
-          </View>
+          </>
         )}
       </Formik>
     </Wrapper>

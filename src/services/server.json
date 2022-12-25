@@ -8,7 +8,7 @@
       "addressNumber": "836",
       "city": "São Paulo",
       "state": "SP",
-      "price": 40.00,
+      "price": 40,
       "totalTickets": 50,
       "date": "2022-12-26",
       "hour": "20:00",
@@ -22,7 +22,7 @@
       "addressNumber": "333",
       "city": "Bernardo do Campo",
       "state": "SP",
-      "price": 45.00,
+      "price": 45,
       "totalTickets": 13,
       "date": "2022-12-26",
       "hour": "19:00",
@@ -36,7 +36,7 @@
       "addressNumber": "1-30",
       "city": "Bauru",
       "state": "SP",
-      "price": 20.00,
+      "price": 20,
       "totalTickets": 10,
       "date": "2022-12-26",
       "hour": "22:00",
@@ -50,7 +50,7 @@
       "addressNumber": "4811",
       "city": "Ribeirão Preto",
       "state": "SP",
-      "price": 100.00,
+      "price": 100,
       "totalTickets": 22,
       "date": "2022-12-26",
       "hour": "21:00",
@@ -64,7 +64,7 @@
       "addressNumber": "836",
       "city": "São Paulo",
       "state": "SP",
-      "price": 30.00,
+      "price": 30,
       "totalTickets": 6,
       "date": "2022-12-27",
       "hour": "22:00",
@@ -78,7 +78,7 @@
       "addressNumber": "1-30",
       "city": "Bauru",
       "state": "SP",
-      "price": 40.00,
+      "price": 40,
       "totalTickets": 6,
       "date": "2022-12-27",
       "hour": "21:00",
@@ -92,11 +92,106 @@
       "addressNumber": "1-30",
       "city": "Bauru",
       "state": "SP",
-      "price": 40.00,
+      "price": 40,
       "totalTickets": 6,
       "date": "2022-12-28",
       "hour": "21:00",
       "categoty": "Universidades"
+    }
+  ],
+  "payment": [
+    {
+      "id": "a10287bc-3fb0-4089-abe4-c6c38c6177ed",
+      "card": {
+        "number": "4545 4545 4545 4545",
+        "exp_date": "12/23",
+        "cvv": "123",
+        "holder": "Daniel Wallace "
+      },
+      "tickets": [
+        {
+          "id": "1",
+          "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/cf474bf27be32a2341460b1291aa029e.jpg",
+          "name": "BPM",
+          "address": "Rua Alagoas",
+          "addressNumber": "836",
+          "city": "São Paulo",
+          "state": "SP",
+          "price": 40,
+          "totalTickets": 50,
+          "date": "2022-12-26",
+          "hour": "20:00",
+          "categoty": "Universidades",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "01c9894e-ed95-4116-958f-99706264f6ea",
+      "card": {
+        "number": "5454 5454 5454 5488",
+        "exp_date": "12/23",
+        "cvv": "153",
+        "holder": "Daniel Wallace "
+      },
+      "tickets": [
+        {
+          "id": "1",
+          "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/cf474bf27be32a2341460b1291aa029e.jpg",
+          "name": "BPM",
+          "address": "Rua Alagoas",
+          "addressNumber": "836",
+          "city": "São Paulo",
+          "state": "SP",
+          "price": 40,
+          "totalTickets": 50,
+          "date": "2022-12-26",
+          "hour": "20:00",
+          "categoty": "Universidades",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "5da8ff66-3303-4b6c-b514-f6fe08108e51",
+      "card": {
+        "number": "4545 4545 4545 4545",
+        "exp_date": "12/26",
+        "cvv": "123",
+        "holder": "Daniel Wallace "
+      },
+      "tickets": [
+        {
+          "id": "1",
+          "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/cf474bf27be32a2341460b1291aa029e.jpg",
+          "name": "BPM",
+          "address": "Rua Alagoas",
+          "addressNumber": "836",
+          "city": "São Paulo",
+          "state": "SP",
+          "price": 40,
+          "totalTickets": 50,
+          "date": "2022-12-26",
+          "hour": "20:00",
+          "categoty": "Universidades",
+          "amount": 2
+        },
+        {
+          "id": "2",
+          "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/223b12ff31d7a2c621f78c591888c465.jpg",
+          "name": "Paca 333",
+          "address": "Rua Pacaembu",
+          "addressNumber": "333",
+          "city": "Bernardo do Campo",
+          "state": "SP",
+          "price": 45,
+          "totalTickets": 13,
+          "date": "2022-12-26",
+          "hour": "19:00",
+          "categoty": "Universidades",
+          "amount": 2
+        }
+      ]
     }
   ]
 }

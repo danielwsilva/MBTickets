@@ -14,3 +14,16 @@ export type TicketResponse = {
   loading: boolean;
   amount: number;
 };
+
+type Card = {
+  number: string;
+  exp_date: string;
+  holder: string;
+  cvv: string;
+}
+
+export type PaymentRequest = {
+  id: string;
+  card: Card;
+  tickets: TicketResponse[];
+};

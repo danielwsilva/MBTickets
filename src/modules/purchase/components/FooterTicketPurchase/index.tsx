@@ -13,16 +13,16 @@ type FooterTicketPurchaseProps = {
 }
 
 export const FooterTicketPurchase = ({ data }: FooterTicketPurchaseProps) => {
-  const { cart, addProduct } = useCart();
+  const { cart, addTicket } = useCart();
   const { colors } = theme;
 
-  const productCart = useMemo(() => cart.find((ticket) => ticket.id === data.id), [cart]);
-  const active = productCart?.id === data.id;
+  const ticketCart = useMemo(() => cart.find((ticket) => ticket.id === data.id), [cart]);
+  const active = ticketCart?.id === data.id;
 
   const styles = getStyles({ active });
 
   const handleAddCart = () => {
-    addProduct({ ...data, amount: 1 });
+    addTicket({ ...data, amount: 1 });
   };
 
   return (
