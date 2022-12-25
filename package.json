@@ -28,6 +28,7 @@
     "react-native": "0.70.5",
     "react-native-calendars": "^1.1292.0",
     "react-native-gesture-handler": "^2.8.0",
+    "react-native-get-random-values": "^1.8.0",
     "react-native-mask-input": "^1.2.2",
     "react-native-reanimated": "~2.12.0",
     "react-native-responsive-fontsize": "^0.5.1",
@@ -35,12 +36,14 @@
     "react-native-screens": "~3.18.0",
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.9",
+    "uuid": "^9.0.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.70.6",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "babel-eslint": "^10.1.0",

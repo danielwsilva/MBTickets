@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StatusBar, ViewStyle, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, StatusBar, ViewStyle } from 'react-native';
 
 import theme from 'styles/theme';
 
@@ -21,9 +21,9 @@ export const Wrapper = ({ children, styleContainer, ...props }: WrapperProps) =>
     <>
       <StatusBar barStyle="light-content" backgroundColor={theme.colors.black} />
       <Header {...props} />
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
-        <View style={[styles.container, styleContainer]}>{children}</View>
-      </KeyboardAvoidingView>
+      <View style={[styles.container, styleContainer]}>
+        {children}
+      </View>
     </>
   );
 };

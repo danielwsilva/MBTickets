@@ -5,9 +5,10 @@ import { TicketResponse } from 'services/api/purchase/types';
 interface CartContextData {
   cart: TicketResponse[];
   total: number;
-  addProduct: (_ticket: TicketResponse) => void;
-  updateProduct: (_ticket: TicketResponse , _amount: number) => number;
-  removeProduct: (_ticket: TicketResponse) => void;
+  setCart: (_item: TicketResponse[]) => void;
+  addTicket: (_ticket: TicketResponse) => void;
+  updateTicket: (_ticket: TicketResponse , _amount: number) => number;
+  removeTicket: (_ticket: TicketResponse) => void;
   calcTotal: (_tickets: TicketResponse[]) => void;
 }
 
@@ -21,30 +22,30 @@ export function CartProvider({ children }: PropsProvider) {
   const [cart, setCart] = useState<TicketResponse[]>([]);
   const [total, setTotal] = useState(0);
 
-  const addProduct = useCallback((ticket: TicketResponse) => {
-    const productIndex = cart.findIndex((item) => item.id === ticket.id);
+  const addTicket = useCallback((ticket: TicketResponse) => {
+    const ticketIndex = cart.findIndex((item) => item.id === ticket.id);
 
-    if (productIndex < 0) {
+    if (ticketIndex < 0) {
       setCart([...cart, { ...ticket }]);
     } else {
-      removeProduct(ticket);
+      removeTicket(ticket);
     }
   }, [cart]);
 
-  const updateProduct = useCallback((ticket: TicketResponse, amount: number) => {
+  const updateTicket = useCallback((ticket: TicketResponse, amount: number) => {
     if (amount <= 0 || amount > ticket.totalTickets) return ticket.amount;
 
-    const productIndex = cart.findIndex((item) => item.id === ticket.id);
-    cart[productIndex].amount = amount;
+    const ticketIndex = cart.findIndex((item) => item.id === ticket.id);
+    cart[ticketIndex].amount = amount;
 
     calcTotal(cart);
 
     return amount;
   }, [cart]);
 
-  const removeProduct = useCallback((ticket: TicketResponse) => {
-    const filterProduct = cart.filter((item) => item.id !== ticket.id);
-    setCart(filterProduct);
+  const removeTicket = useCallback((ticket: TicketResponse) => {
+    const filterTicket = cart.filter((item) => item.id !== ticket.id);
+    setCart(filterTicket);
   }, [cart]);
 
   const calcTotal = useCallback((tickets: TicketResponse[]) => {
@@ -60,9 +61,10 @@ export function CartProvider({ children }: PropsProvider) {
       value={{
         cart,
         total,
-        addProduct,
-        updateProduct,
-        removeProduct,
+        setCart,
+        addTicket,
+        updateTicket,
+        removeTicket,
         calcTotal
       }}
     >

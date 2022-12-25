@@ -15,7 +15,7 @@ import {FooterTicketCart, Ticket } from '../../components';
 import styles from './styles';
 
 export const Cart = () => {
-  const { cart, total, calcTotal, removeProduct } = useCart();
+  const { cart, total, calcTotal, removeTicket } = useCart();
 
   const { navigate } = useNavigation();
 
@@ -34,7 +34,7 @@ export const Cart = () => {
     const hasSeperator = cart[cart.length - 1].id !== item.id;
 
     const rightSwipe = () => (
-      <TouchableOpacity onPress={() => removeProduct(item)} style={styles.swipeable}>
+      <TouchableOpacity onPress={() => removeTicket(item)} style={styles.swipeable}>
         <Ionicons name="md-trash-sharp" size={20} color={colors.white} />
         <Text color={colors.white} fontSize={12}>
           Excluir

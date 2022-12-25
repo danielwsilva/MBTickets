@@ -15,17 +15,17 @@ type FooterTicketPurchaseProps = {
 
 export const FooterTicketCart = ({ data }: FooterTicketPurchaseProps) => {
   const [amount, setAmount] = useState(data.amount);
-  const { updateProduct } = useCart();
+  const { updateTicket } = useCart();
 
   const { colors } = theme;
 
   const increment = () => {
-    const amount = updateProduct(data, data.amount + 1);
+    const amount = updateTicket(data, data.amount + 1);
     setAmount(amount);
   };
 
   const decrement = () => {
-    const amount = updateProduct(data, data.amount - 1);
+    const amount = updateTicket(data, data.amount - 1);
     setAmount(amount);
   };
 
