@@ -1,13 +1,21 @@
 import { useMutation, useQuery, UseQueryOptions } from '@tanstack/react-query';
 
-import { ticketAPI } from '../../apiConfig';
-import { createTicket } from './keys';
+import { ticketAPI } from '../apiConfig';
+import { createTicket, createMyTicket } from './keys';
 import { TicketResponse, PaymentRequest } from './types';
 
 export const useTicket = (options?: UseQueryOptions<TicketResponse[]>) => {
   return useQuery(
     createTicket(),
     (data) => ticketAPI.get<TicketResponse[]>('/tickets', data).then((response) => response.data),
+    options
+  );
+};
+
+export const useMyTicket = (options?: UseQueryOptions<PaymentRequest[]>) => {
+  return useQuery(
+    createMyTicket(),
+    (data) => ticketAPI.get<PaymentRequest[]>('/payment', data).then((response) => response.data),
     options
   );
 };

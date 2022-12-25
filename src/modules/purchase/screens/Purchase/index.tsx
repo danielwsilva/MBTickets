@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 
 import { Modal, Text, Wrapper } from 'components';
 import { ROUTES } from 'navigation/appRoutes';
-import { useTicket } from 'services/api/purchase';
+import { useTicket } from 'services/api';
 import { TicketResponse } from 'services/api/purchase/types';
 import theme from 'styles/theme';
 
