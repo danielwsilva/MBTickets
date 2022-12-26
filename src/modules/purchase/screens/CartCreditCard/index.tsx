@@ -60,8 +60,6 @@ export const CartCreditCard = () => {
   return (
     <>
       <Wrapper title="Pagamento" styleContainer={styles.container}>
-        <Text style={{ textAlign: 'center' }}>Cadastre seu cartão de crédito para efetuar o pagamentos</Text>
-
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
@@ -73,6 +71,8 @@ export const CartCreditCard = () => {
           {({ handleChange, handleSubmit, values, errors, setErrors }) => (
             <>
               <ScrollView showsVerticalScrollIndicator={false}>
+                <Text style={{ textAlign: 'center' }}>Cadastre seu cartão de crédito para efetuar o pagamentos</Text>
+
                 <CreditCard
                   cardNumber={values.number}
                   expireDate={values.exp_date}

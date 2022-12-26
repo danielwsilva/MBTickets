@@ -9,6 +9,7 @@ export default StyleSheet.create({
     height: RFValue(60),
     marginBottom: RFValue(12),
     marginHorizontal: RFValue(16),
+    position: 'absolute',
     borderRadius: 24
   },
   content: {
