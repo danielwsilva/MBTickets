@@ -86,6 +86,20 @@
     },
     {
       "id": "7",
+      "image": "https://event-kraken.s3.amazonaws.com/event/posters/61575/large.jpg?t=2022-12-23T16:19:59.062643+00:00",
+      "name": "Festival Agrada Gregos",
+      "address": "R. Dr. Moisés Kahan",
+      "addressNumber": "136",
+      "city": "São Paulo",
+      "state": "SP",
+      "price": 89.99,
+      "totalTickets": 6,
+      "date": "2022-12-27",
+      "hour": "18:00",
+      "categoty": "Empresas"
+    },
+    {
+      "id": "8",
       "image": "https://d106p58duwuiz5.cloudfront.net/event/cover/f76e8673a6ebf7c59d49ae8184f7ae6e.png",
       "name": "Pop Funk",
       "address": "Av. Odilon Braga",
@@ -99,6 +113,5 @@
       "categoty": "Universidades"
     }
   ],
-  "payment": [
-  ]
+  "payment": []
 }
